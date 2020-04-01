@@ -1,7 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { ListGroup, Button, Spinner } from 'react-bootstrap';
 import './post_list.css';
+
+/** 變動部分:
+ * 1. 文章列表改版，變得更像 blog
+ * 2. 文章編輯列表改放後台，後台最簡單的就是用密碼確認搭配 hash 確認即可
+ * 3. 優化整個畫面
+ */
 
 const RenderPosts = ({ data, history, showManagementWindow }) => {
   const handleShow = (e) => {
@@ -49,6 +55,8 @@ const RenderPosts = ({ data, history, showManagementWindow }) => {
 const Posts = ({
   history, postsListData, showManagementWindow, getPosts, shouldGetPosts
 }) => {
+  const [postsStyle, setPostsStyle] = useState('list');
+
   const handleShowWindows = e => showManagementWindow({ method: e.target.name });
 
   useEffect(() => {
@@ -58,11 +66,15 @@ const Posts = ({
   return (
     <div className="blog">
       <header className="header">
-        <div className="header__title">部落格文章</div>
-        <div className="header__newpost">
-          <Button variant="outline-primary" onClick={handleShowWindows} name="create">
-            新增文章
+          <div className="header__title">部落格文章</div>
+        <div className="header__body">
+
+          <div className="header__newpost">
+            <Button variant="outline-primary" onClick={handleShowWindows} name="create">
+              新增文章
           </Button>
+          </div>
+        <div>天阿</div>
         </div>
       </header>
       <main className="blog__posts">
