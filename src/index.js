@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
+import logger from 'redux-logger';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { postsReducer, windowReducer } from './reducer';
+
+const reducers = combineReducers({
+  posts: postsReducer,
+  postState: windowReducer,
+});
+
+const store = createStore(reducers, applyMiddleware(ReduxThunk, logger));
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App name="hugh" />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
