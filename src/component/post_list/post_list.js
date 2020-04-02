@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import { ListGroup, Button, Spinner } from 'react-bootstrap';
+import { ListGroup, Button, Spinner, ButtonGroup } from 'react-bootstrap';
 import './post_list.css';
 
 /** 變動部分:
@@ -9,7 +9,7 @@ import './post_list.css';
  * 3. 優化整個畫面
  */
 
-const RenderPosts = ({ data, history, showManagementWindow }) => {
+const RenderListPosts = ({ data, history, showManagementWindow }) => {
   const handleShow = (e) => {
     const { id, name } = e.target.dataset;
     showManagementWindow({ method: name, postId: parseInt(id, 10) }); // event 接收的是 string
@@ -52,10 +52,39 @@ const RenderPosts = ({ data, history, showManagementWindow }) => {
   );
 };
 
+const PostsHeader = ({ isList, setIsList, handleShowWindows }) => {
+  return (
+    <header className="header">
+      <div className="header__title">部落格文章</div>
+      <div className="header__body">
+        <div className="header__newpost">
+          <Button variant="outline-primary" onClick={handleShowWindows} name="create">
+            新增文章
+          </Button>
+        </div>
+        <ButtonGroup aria-label="Basic example">
+          <Button
+            variant={isList ? "success" : "outline-success"}
+            onClick={() => setIsList(true)}
+          >
+            條列
+        </Button>
+          <Button
+            variant={isList ? "outline-success" : "success"}
+            onClick={() => setIsList(false)}
+          >
+            網格
+        </Button>
+        </ButtonGroup>
+      </div>
+    </header>
+  )
+}
+
 const Posts = ({
   history, postsListData, showManagementWindow, getPosts, shouldGetPosts
 }) => {
-  const [postsStyle, setPostsStyle] = useState('list');
+  const [isList, setIsList] = useState(false);
 
   const handleShowWindows = e => showManagementWindow({ method: e.target.name });
 
@@ -65,22 +94,11 @@ const Posts = ({
 
   return (
     <div className="blog">
-      <header className="header">
-          <div className="header__title">部落格文章</div>
-        <div className="header__body">
-
-          <div className="header__newpost">
-            <Button variant="outline-primary" onClick={handleShowWindows} name="create">
-              新增文章
-          </Button>
-          </div>
-        <div>天阿</div>
-        </div>
-      </header>
+      <PostsHeader {...{ isList, setIsList, handleShowWindows }} />
       <main className="blog__posts">
         {/** 判斷是否讀取中 */
           postsListData.length
-            ? <RenderPosts data={postsListData} {...{ history, showManagementWindow }} />
+            ? <RenderListPosts data={postsListData} {...{ history, showManagementWindow }} />
             : <Spinner animation="border" />
         }
       </main>
