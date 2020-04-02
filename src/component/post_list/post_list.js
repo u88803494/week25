@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import { ListGroup, Button, Spinner, ButtonGroup } from 'react-bootstrap';
+import { ListGroup, Button, Spinner, ButtonGroup, Media } from 'react-bootstrap';
 import './post_list.css';
 
 /** 變動部分:
@@ -52,6 +52,34 @@ const RenderListPosts = ({ data, history, showManagementWindow }) => {
   );
 };
 
+const RenderBlogPosts = ({ data, history, showManagementWindow }) => {
+  return (
+    <>
+      {data.map(post => ( // media 或是 jumbotron 修改
+        <Media>
+          <img
+            width={64}
+            height={64}
+            className="mr-3"
+            src="holder.js/64x64"
+            alt="Generic placeholder"
+          />
+          <Media.Body>
+            <h5>Media Heading</h5>
+            <p>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+              ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
+              tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+              Donec lacinia congue felis in faucibus.
+          </p>
+          </Media.Body>
+        </Media>
+
+      ))}
+    </>
+  )
+}
+
 const PostsHeader = ({ isList, setIsList, handleShowWindows }) => {
   return (
     <header className="header">
@@ -98,7 +126,7 @@ const Posts = ({
       <main className="blog__posts">
         {/** 判斷是否讀取中 */
           postsListData.length
-            ? <RenderListPosts data={postsListData} {...{ history, showManagementWindow }} />
+            ? <RenderBlogPosts data={postsListData} {...{ history, showManagementWindow }} />
             : <Spinner animation="border" />
         }
       </main>
