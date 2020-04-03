@@ -89,6 +89,7 @@ class TheNavbar extends React.Component {
             <Item to="/" exact text="首頁" />
             <Item to="/posts" text="文章列表" />
             <Item to="/about" text="關於本站" />
+            <div>後台</div> {/* 彈出視窗輸入密碼成功開啟，真實密碼利用 hash 隱藏，之後在實作登入功能 */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

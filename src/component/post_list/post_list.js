@@ -7,6 +7,8 @@ import './post_list.css';
  * 1. 文章列表改版，變得更像 blog
  * 2. 文章編輯列表改放後台，後台最簡單的就是用密碼確認搭配 hash 確認即可
  * 3. 優化整個畫面
+ * 4. 由一個 RenderPost 選擇要 render list 或是 blog
+ * 5. 切割檔案出去
  */
 
 const RenderListPosts = ({ data, history, showManagementWindow }) => {
@@ -52,11 +54,11 @@ const RenderListPosts = ({ data, history, showManagementWindow }) => {
   );
 };
 
-const RenderBlogPosts = ({ data, history, showManagementWindow }) => {
+const RenderGridPosts = ({ data, history, showManagementWindow }) => {
   return (
     <>
       {data.map(post => ( // media 或是 jumbotron 修改
-        <Media>
+        <Media className="blog__post blog__post--grid">
           <img
             width={64}
             height={64}
@@ -65,13 +67,12 @@ const RenderBlogPosts = ({ data, history, showManagementWindow }) => {
             alt="Generic placeholder"
           />
           <Media.Body>
-            <h5>Media Heading</h5>
-            <p>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-              ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
-              tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
-              Donec lacinia congue felis in faucibus.
-          </p>
+            <h5> {post.title} </h5>
+            <pre> {/* 限制高度，多的不顯示變成... */}
+              {post.body}
+            </pre>
+          
+          {/* 用點擊文章或標題看更多就好 */}
           </Media.Body>
         </Media>
 
@@ -126,7 +127,7 @@ const Posts = ({
       <main className="blog__posts">
         {/** 判斷是否讀取中 */
           postsListData.length
-            ? <RenderBlogPosts data={postsListData} {...{ history, showManagementWindow }} />
+            ? <RenderGridPosts data={postsListData} {...{ history, showManagementWindow, isList }} />
             : <Spinner animation="border" />
         }
       </main>

@@ -38,6 +38,13 @@
   box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.075);
 }
 
+.blog__post--grid {
+  border: 1px solid #cecece;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
 .blog__title {
   overflow: hidden;
   text-overflow: ellipsis;
