@@ -38,41 +38,16 @@
   box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.075);
 }
 
-.blog__post--grid { /* grid */
-  border: 1px solid #cecece;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  padding: 10px 30px;
-  max-height: 200px;
-}
-
 .blog__title {
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 20%;
-  margin: 0 20px 0 30px;
 }
 
 .blog__title:hover {
   color: #6c757d;
   cursor: pointer;
   text-decoration: underline;
-}
-
-.blog__body { /* grid */
-  max-height: 180px;
-}
-
-.blog__avator { /* grid */
-  border-radius: 50%;
-}
-
-.blog__content { /* grid */
-  word-break: break-word;
-  white-space: pre-wrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-height: 100px;
 }
 
 .btn ~ .btn {

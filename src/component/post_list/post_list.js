@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button, Spinner, ButtonGroup } from 'react-bootstrap';
 import './post_list.css';
-import { ListPosts } from './ListPosts';
-import { GridPosts } from './GridPosts';
+import { ListPosts } from './list_posts';
+import { GridPosts } from './grid_posts';
 
 /** 變動部分:
- * 1. 文章列表改版，變得更像 blog
+ * ~~1. 文章列表改版，變得更像 blog~~
  * 2. 文章編輯列表改放後台，後台最簡單的就是用密碼確認搭配 hash 確認即可
  * 3. 優化整個畫面
- * 4. 由一個 RenderPost 選擇要 render list 或是 blog
- * 5. 切割檔案出去
+ * ~~4. 由一個 RenderPost 選擇要 render list 或是 blog~~
+ * ~~5. 切割檔案出去~~
  */
 const PostsHeader = ({ isList, setIsList, handleShowWindows }) => {
   return (
@@ -47,13 +47,15 @@ const RenderPosts = ({ data, history, isList, showManagementWindow }) => {
     showManagementWindow({ method: name, postId: parseInt(id, 10) }); // event 接收的是 string
   };
 
+  const historyPush = e => history.push(`/posts/${e.target.dataset.id}`)
+
   return (
     <>
-      {isList ? <ListPosts {...{ data, history, handleShow }} /> : <GridPosts {...{ data, history, handleShow }} />}
+      {isList
+        ? <ListPosts {...{ data, handleShow, historyPush }} />
+        : <GridPosts {...{ data, handleShow, historyPush }} />}
     </>
   )
-
-
 }
 
 const Posts = ({
