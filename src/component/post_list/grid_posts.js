@@ -1,6 +1,6 @@
 import React from 'react';
 import './grid_posts.css';
-import { Media } from 'react-bootstrap';
+import { Media, Col, Image } from 'react-bootstrap';
 
 export const GridPosts = ({ data, historyPush, }) => (
   <>
@@ -26,6 +26,9 @@ export const GridPosts = ({ data, historyPush, }) => (
             </div>
           </div>
         </Media.Body>
+        <Col xs={6} md={4} className="blog_picture">
+          <Image src="holder.js/171x180" width={32} height={32} thumbnail />
+        </Col>
       </Media>))}
   </>
 );

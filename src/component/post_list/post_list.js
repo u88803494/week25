@@ -34,7 +34,7 @@ const PostsHeader = ({ isList, setIsList, handleShowWindows }) => {
             onClick={() => setIsList(false)}
           >
             網格
-        </Button>
+          </Button>
         </ButtonGroup>
       </div>
     </header>
