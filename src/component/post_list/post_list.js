@@ -70,7 +70,7 @@ const Posts = ({
   }, [getPosts, shouldGetPosts]); // 一開始 ture 會取得值，然後後續修改成功之後也會取得值
 
   return (
-    <div className="blog">
+    <div className="blog container">
       <PostsHeader {...{ isList, setIsList, handleShowWindows }} />
       <main className="blog__posts">
         {/** 判斷是否讀取中 */

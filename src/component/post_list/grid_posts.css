@@ -2,7 +2,7 @@
   border: 1px solid #cecece;
   margin-bottom: 20px;
   border-radius: 5px;
-  padding: 15px 30px;
+  padding: 10px 15px;
 }
 
 .blog__body {
@@ -10,7 +10,7 @@
 }
 
 .blog__title--grid {
-  white-space: nowrap;
+  white-space: pre-line;
 }
 
 .blog__content {
@@ -18,7 +18,7 @@
   white-space: pre-wrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 100px;
+  max-height: 140px;
 }
 
 .blog__content:hover {
@@ -48,4 +48,9 @@
 .blog__author--ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.blog_picture {
+  max-height: 100%;
+  width: 100%;
 }

@@ -1,6 +1,6 @@
 .blog {
   max-width: 752px;
-  margin: 100px auto;
+  margin: 70px auto;
   padding: 20px;
 }
 
@@ -27,7 +27,6 @@
 .blog__post {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   white-space: nowrap;
   transition: 0.2s;
 }
