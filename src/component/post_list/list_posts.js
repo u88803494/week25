@@ -5,7 +5,7 @@ import { ListGroup, Button } from 'react-bootstrap';
 export const ListPosts = ({ data, handleShow, historyPush }) => (
   <>
     {data.map(post => (
-      <ListGroup.Item key={post.id} className="blog__post">
+      <ListGroup.Item className="blog__post blog__post--list" key={post.id}>
         <div className="blog__title blog__title--list" data-id={post.id} onClick={historyPush}>
           {post.title}
         </div>
