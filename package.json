@@ -42,5 +42,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/u88803494/week25.git",
+  "author": "Hugh <u88803494@gmail.com>",
+  "license": "MIT"
 }

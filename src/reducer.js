@@ -33,7 +33,13 @@ const postsReducer = (globalState = postsInitState, action) => {
       return {
         ...globalState,
         postsListData: action.data // 篩選資料
-          .filter(({ title, author, body }) => title && author && body),
+          .filter(({ title, author, body }) => title && author && body)
+          .map(post => ({ // 轉化時間，去掉多餘內容
+            ...post,
+            createdAt: new Date(post.createdAt)
+              .toString()
+              .replace(" GMT+0800 (台北標準時間)", ""),
+          })),
         shouldGetPosts: false,
         error: '',
       };

@@ -1,19 +1,22 @@
 .blog {
-  max-width: 752px;
-  margin: 100px auto;
+  margin: 70px auto;
   padding: 20px;
 }
 
 .header {
-  padding-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding-bottom: 50px;
 }
 
 .header__title {
   font-size: 35px;
   font-weight: bolder;
+  padding-bottom: 20px;
+}
+
+.header__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header__newpost {
@@ -23,7 +26,6 @@
 .blog__post {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   white-space: nowrap;
   transition: 0.2s;
 }
@@ -38,7 +40,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 20%;
-  margin: 0 20px 0 30px;
 }
 
 .blog__title:hover {
