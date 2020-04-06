@@ -22,9 +22,7 @@ export const GridPosts = ({ data, historyPush, }) => (
             />
             <div className="blog__author--info">
               <div className="blog__author--ellipsis">{post.author}</div>
-              <small className="blog__author--ellipsis">
-                {new Date(post.createdAt).toString().replace("GMT+0800 (台北標準時間)","")} 
-                </small>
+              <small className="blog__author--ellipsis">{post.createdAt}</small>
             </div>
           </div>
         </Media.Body>
