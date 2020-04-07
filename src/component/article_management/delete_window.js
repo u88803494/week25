@@ -45,8 +45,8 @@ const DeleteWindow = ({
         <Button variant="outline-danger" onClick={handleDelete} disabled={!submitType.canSubmit}>
           {submitType.button}
         </Button>
-        <Button variant="outline-danger" onClick={handleErrorDelete} disabled={!submitType.canSubmit}>
-          {`${submitType.button === '送出' ? '錯誤' : ''}${submitType.button}`}
+        <Button variant="outline-danger" onClick={handleErrorDelete} disabled={!submitType.canSubmit} size="sm">
+          {`${submitType.button === '送出' ? '錯誤測試' : ''}${submitType.button}`}
         </Button>
       </Modal.Footer>
     </Modal>

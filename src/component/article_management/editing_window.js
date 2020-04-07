@@ -31,7 +31,7 @@ const EditingWindow = ({
       return;
     }
     setSubmitType({ canSubmit: false, status: '', button: '傳送中.' });
-  }; // 可加上 google CAPTCHA 驗證
+  };
 
   useEffect(() => {
     if (submitType.button === '傳送中') {
@@ -146,11 +146,12 @@ const EditingWindow = ({
             {submitType.button}
           </Button>
           <Button
-            variant="outline-primary"
+            variant="outline-danger"
             onClick={handleErrorSubmit}
             disabled={!submitType.canSubmit}
+            size="sm"
           >
-            {`${submitType.button === '送出' ? '錯誤' : ''}${submitType.button}`}
+            {`${submitType.button === '送出' ? '錯誤測試' : ''}${submitType.button}`}
           </Button>
         </Modal.Footer>
       </Form>

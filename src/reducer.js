@@ -12,6 +12,10 @@ const windowInitState = {
   postId: null,
 };
 
+const adminWindowInitState = {
+  show: true,
+}
+
 const postsReducer = (globalState = postsInitState, action) => {
   switch (action.type) {
     case actionTypes.CREATE_POST_FULFILLED:
@@ -69,4 +73,15 @@ const windowReducer = (globalState = windowInitState, action) => {
   }
 };
 
-export { postsReducer, windowReducer };
+const adminWindowReducer = (globalState = adminWindowInitState, action) => {
+  switch (action.type) {
+    case actionTypes.SHOW_ADMIN_WINDOW:
+      return { show: true, };
+    case actionTypes.HIDE_ADMIN_WINDOW:
+      return { show: false, };
+    default:
+      return globalState;
+  }
+}
+
+export { postsReducer, windowReducer, adminWindowReducer };

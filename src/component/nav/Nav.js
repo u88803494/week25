@@ -4,10 +4,7 @@ import { Nav, Navbar } from 'react-bootstrap';
 import './nav.css';
 
 const Item = ({ to, text, exact }) => (
-  <Route
-    path={to}
-    exact={exact}
-  >
+  <Route path={to} exact={exact}>
     {({ match }) => (
       <Link to={to} className={`nav-link ${match ? 'active' : ''}`}>
         {text}
@@ -71,8 +68,6 @@ class TheNavbar extends React.Component {
   }
 
   render() {
-    const { isHidden } = this.state;
-
     return (
       <Navbar
         collapseOnSelect
@@ -80,16 +75,19 @@ class TheNavbar extends React.Component {
         bg="dark"
         variant="dark"
         fixed="top"
-        className={isHidden && 'navbar--hide'}
+        className={this.state.isHidden && 'navbar--hide'}
       >
-        <Navbar.Brand href="/#">React-Blog</Navbar.Brand>
+        <Navbar.Brand>React-Blog</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <Item to="/" exact text="首頁" />
             <Item to="/posts" text="文章列表" />
             <Item to="/about" text="關於本站" />
-            <div>後台</div> {/* 彈出視窗輸入密碼成功開啟，真實密碼利用 hash 隱藏，之後在實作登入功能 */}
+          </Nav>
+          <Nav >
+            <div className="nav-link admin" onClick={this.props.onShow}>管理員登入</div>
+            {/* 彈出視窗輸入密碼成功開啟，真實密碼利用 hash 隱藏，之後在實作登入功能 */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

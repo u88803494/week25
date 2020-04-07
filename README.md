@@ -1,3 +1,5 @@
+安裝 js-sha256 來作為密碼比對
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

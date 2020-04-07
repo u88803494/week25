@@ -94,6 +94,14 @@ export const showManagementWindow = postState => ({
   postState,
 });
 
-export const hideMangementWindow = () => ({
+export const hideManagementWindow = () => ({
   type: actionTypes.HIDE_ARTICLE_MANAGEMENT_WINDOW,
+});
+
+export const showAdminWindow = () => ({
+  type: actionTypes.SHOW_ADMIN_WINDOW,
+});
+
+export const hideAdminWindow = () => ({
+  type: actionTypes.HIDE_ADMIN_WINDOW,
 });

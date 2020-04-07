@@ -24,17 +24,17 @@ const PostsHeader = ({ isList, setIsList, handleShowWindows }) => {
         </div>
         <ButtonGroup aria-label="Basic example">
           <Button
-            variant={isList ? "success" : "outline-success"}
-            onClick={() => setIsList(true)}
-          >
-            條列
-        </Button>
-          <Button
             variant={isList ? "outline-success" : "success"}
             onClick={() => setIsList(false)}
           >
             網格
           </Button>
+          <Button
+            variant={isList ? "success" : "outline-success"}
+            onClick={() => setIsList(true)}
+          >
+            條列
+        </Button>
         </ButtonGroup>
       </div>
     </header>

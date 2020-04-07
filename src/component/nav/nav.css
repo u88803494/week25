@@ -1,3 +1,7 @@
 .navbar--hide {
   visibility: hidden;
 }
+
+.admin:hover {
+  cursor: pointer;
+}

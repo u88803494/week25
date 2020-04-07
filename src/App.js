@@ -3,7 +3,8 @@ import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import PostList from './containers/PostsListContainer';
 import ArticleManagement from './containers/ArticleManagementContainer';
-import Nav from './component/nav';
+import Nav from './containers/Nav';
+import Users from './containers/Users';
 import Home from './component/home';
 import Posts from './component/posts';
 import About from './component/about';
@@ -13,6 +14,7 @@ const App = () => (
   <Router>
     <div className="App">
       <Nav />
+      <Users />
       <ArticleManagement />
       <Route exact path="/" component={Home} />
       <Route exact path="/posts" component={PostList} />
