@@ -18,7 +18,7 @@ const About = () => {
     }
   }, []);
 
-  
+
   let app;
   if (!firebase.apps.length) {
     app = firebase.initializeApp(config);
@@ -32,9 +32,40 @@ const About = () => {
   });
 
 
+  var provider = new firebase.auth.GoogleAuthProvider();
+
+  const signupPopup = () => { // 彈出視窗註冊
+    firebase.auth().signInWithPopup(provider).then(function (result) {
+      // 可以獲得 Google 提供 token，token可透過 Google API 獲得其他數據。  
+      var token = result.credential.accessToken;
+      var user = result.user;
+      console.log(result)
+    });
+  }
+
+  const signupRedirect = () => { // 重新導向註冊
+    firebase.auth().signInWithRedirect(provider).then(function (result) {
+      var token = result.credential.accessToken;
+      var user = result.user;
+      console.log(result)
+    });
+  }
+
+  var user = firebase.auth().currentUser;
+
+  if (user) {
+    console.log('yes, you are'+ user)
+  } else {
+    console.log('no ')
+  }
 
   return (
     <div className="about">
+
+      <button id="googleSingUpPopup" onClick={signupPopup}>使用google註冊(Popup)</button>
+      <button id="singUpRedirect" onClick={signupRedirect}>使用google註冊(Redirect)</button>
+
+
       <div>   輸入帳號 : <input id="mail" type="email" /> </div>
       <div>   輸入密碼 : <input id="password" type="password" /> </div>
       <button id="btnSingUp">註冊</button>
