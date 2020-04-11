@@ -13,7 +13,7 @@ const windowInitState = {
 };
 
 const adminWindowInitState = {
-  show: true,
+  show: false,
 }
 
 const postsReducer = (globalState = postsInitState, action) => {
