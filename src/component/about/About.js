@@ -18,6 +18,32 @@ const About = () => {
     }
   }, []);
 
+  // 登入
+  useEffect(() => {
+    var btnLogin = document.getElementById('btnLogin');
+
+    btnLogin.onclick = function () {
+      var email = document.getElementById('mail').value;
+      var password = document.getElementById('password').value;
+
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((res) => {
+          console.log(res)
+          if (user) {
+            console.log(user.email)
+          } else {
+            console.log('no ')
+          }
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+
+      var user = firebase.auth().currentUser;
+
+    }
+  }, []);
+
 
   let app;
   if (!firebase.apps.length) {
@@ -35,40 +61,28 @@ const About = () => {
   var provider = new firebase.auth.GoogleAuthProvider();
 
   const signupPopup = () => { // 彈出視窗註冊
-    firebase.auth().signInWithPopup(provider).then(function (result) {
-      // 可以獲得 Google 提供 token，token可透過 Google API 獲得其他數據。  
-      var token = result.credential.accessToken;
-      var user = result.user;
-      console.log(result)
-    });
-  }
-
-  const signupRedirect = () => { // 重新導向註冊
-    firebase.auth().signInWithRedirect(provider).then(function (result) {
-      var token = result.credential.accessToken;
-      var user = result.user;
-      console.log(result)
-    });
-  }
-
-  var user = firebase.auth().currentUser;
-
-  if (user) {
-    console.log('yes, you are'+ user)
-  } else {
-    console.log('no ')
+    firebase.auth().signInWithPopup(provider)
+      .then(function (result) {
+        // 可以獲得 Google 提供 token，token 可透過 Google API 獲得其他數據。  
+        var token = result.credential.accessToken;
+        var user = result.user;
+        console.log(token)
+        console.log(user)
+        // 這裡面就包含使用者資料，直接存在redux上面應該就行。要保持登入就把這些資料存在 cookie 吧
+      });
   }
 
   return (
     <div className="about">
 
       <button id="googleSingUpPopup" onClick={signupPopup}>使用google註冊(Popup)</button>
-      <button id="singUpRedirect" onClick={signupRedirect}>使用google註冊(Redirect)</button>
 
 
       <div>   輸入帳號 : <input id="mail" type="email" /> </div>
       <div>   輸入密碼 : <input id="password" type="password" /> </div>
       <button id="btnSingUp">註冊</button>
+      <button id="btnLogin">登入</button>
+
       <Jumbotron>
         <h1 className="about__title">maxime quas veniam</h1>
         <pre className="about__content">

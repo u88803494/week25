@@ -8,11 +8,15 @@ const Users = ({ show, onHide }) => {
   const changePassword = e => setPassword(e.target.value);
   const handelSubmit = () => console.log(password);
 
+  const googleSignin = () => {
+    console.log('ok google') // 搭配 react firebaseUI 試試看
+  }
+
   return (
     <>
       <Modal {...{ show, onHide }} >
         <Modal.Header closeButton>
-          <Modal.Title>輸入管理員密碼</Modal.Title>
+          <Modal.Title>輸入管理員密碼/登入</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
@@ -30,6 +34,9 @@ const Users = ({ show, onHide }) => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
+          <Button variant="danger" onClick={googleSignin}>
+            GOOGLE 登入
+          </Button>
           <Button variant="secondary" onClick={onHide}>
             取消
           </Button>
