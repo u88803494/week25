@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import './about.css';
 import firebase from 'firebase';
-import config from '../../firebase_config/config';
+import config from '../../firebase/config';
 
 const About = () => {
 
@@ -44,13 +44,17 @@ const About = () => {
     }
   }, []);
 
-
   let app;
   if (!firebase.apps.length) {
     app = firebase.initializeApp(config);
+    console.log('初始化')
   } else {
     app = firebase.app();
-  }
+    console.log('非初始')
+  } // 也許是該放在 Redux
+
+  console.log(app)
+  // 資料庫
   const database = app.database()
   const path = '/test';
   database.ref(path).once("value", e => {
@@ -58,7 +62,7 @@ const About = () => {
   });
 
 
-  var provider = new firebase.auth.GoogleAuthProvider();
+  var provider = new firebase.auth.GoogleAuthProvider(); // google 註冊初始
 
   const signupPopup = () => { // 彈出視窗註冊
     firebase.auth().signInWithPopup(provider)

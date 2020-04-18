@@ -13,7 +13,7 @@ const windowInitState = {
 };
 
 const adminWindowInitState = {
-  show: false,
+  show: true, // 測試先直接顯示
 }
 
 const postsReducer = (globalState = postsInitState, action) => {
