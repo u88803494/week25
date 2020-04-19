@@ -53,7 +53,6 @@ const About = () => {
     console.log('非初始')
   } // 也許是該放在 Redux
 
-  console.log(app)
   // 資料庫
   const database = app.database()
   const path = '/test';

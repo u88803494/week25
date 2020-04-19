@@ -7,12 +7,12 @@ import ReduxThunk from 'redux-thunk';
 import logger from 'redux-logger';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { postsReducer, windowReducer, adminWindowReducer } from './reducer';
+import { postsReducer, windowReducer, adminReducer } from './reducer';
 
 const reducers = combineReducers({
   posts: postsReducer,
   postState: windowReducer,
-  adminState: adminWindowReducer,
+  adminState: adminReducer,
 });
 
 const store = createStore(reducers, applyMiddleware(ReduxThunk, logger));

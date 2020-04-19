@@ -14,6 +14,10 @@ const windowInitState = {
 
 const adminWindowInitState = {
   show: true, // 測試先直接顯示
+  isLogin: false, // 預計存在 cookie，之後可能還要實作從 cookie 取得值
+  token: null,
+  userId: null,
+  error: null,
 }
 
 const postsReducer = (globalState = postsInitState, action) => {
@@ -73,15 +77,21 @@ const windowReducer = (globalState = windowInitState, action) => {
   }
 };
 
-const adminWindowReducer = (globalState = adminWindowInitState, action) => {
+const adminReducer = (globalState = adminWindowInitState, action) => {
   switch (action.type) {
     case actionTypes.SHOW_ADMIN_WINDOW:
-      return { show: true, };
+      return {
+        ...globalState,
+        show: true,
+      };
     case actionTypes.HIDE_ADMIN_WINDOW:
-      return { show: false, };
+      return {
+        ...globalState,
+        show: false,
+      };
     default:
       return globalState;
   }
 }
 
-export { postsReducer, windowReducer, adminWindowReducer };
+export { postsReducer, windowReducer, adminReducer };

@@ -13,13 +13,6 @@ const Users = ({ show, onHide }) => {
   const handelSubmit = () => console.log(password);
 
   const googleSignin = () => { // 彈出視窗註冊
-    if (!firebase.apps.length) {
-      let app = firebase.initializeApp(config);
-      console.log('初始化')
-    } else {
-      let app = firebase.app();
-      console.log('非初始')
-    }
 
     const provider = new firebase.auth.GoogleAuthProvider(); // google 註冊初始
 

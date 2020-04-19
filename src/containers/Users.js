@@ -5,10 +5,12 @@ import * as actions from '../actions';
 
 const UsersContainer = props => <Users {...props} />;
 
-const mapStateToProps = state => ({
-  show: state.adminState.show,
-});
-
+const mapStateToProps = state => {
+  console.log(state)
+  return ({
+    show: state.adminState.show,
+  });
+}
 const mapDispatchToProps = dispatch => ({
   onHide: () => dispatch(actions.hideAdminWindow()),
 });

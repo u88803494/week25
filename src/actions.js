@@ -105,3 +105,7 @@ export const showAdminWindow = () => ({
 export const hideAdminWindow = () => ({
   type: actionTypes.HIDE_ADMIN_WINDOW,
 });
+
+export const setLoginState = () => {
+  
+}
