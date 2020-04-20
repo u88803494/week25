@@ -5,8 +5,16 @@ import * as actions from '../actions';
 
 const NavContainer = props => <Nav {...props} />;
 
+const mapStateToProps = state => {
+  console.log(state)
+  return ({
+    isLogin: state.adminState.isLogin,
+    familyName: state.adminState.profileName,
+  });
+}
+
 const mapDispatchToProps = dispatch => ({
   onShow: () => dispatch(actions.showAdminWindow()),
 });
 
-export default connect(null, mapDispatchToProps)(NavContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(NavContainer);

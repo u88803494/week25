@@ -17,6 +17,7 @@ const adminWindowInitState = {
   isLogin: false, // 預計存在 cookie，之後可能還要實作從 cookie 取得值
   token: null,
   userId: null,
+  profileName: null,
   error: null,
 }
 
@@ -88,6 +89,21 @@ const adminReducer = (globalState = adminWindowInitState, action) => {
       return {
         ...globalState,
         show: false,
+      };
+    case actionTypes.THIRD_PARTY_LOGIN_FULFILLED:
+      console.log(action)
+      return {
+        ...globalState,
+        isLogin: true,
+        token: action.res.credential.accessToken,
+        userId: action.res.additionalUserInfo.profile.id,
+        profileName: action.res.additionalUserInfo.profile.family_name,
+      };
+    case actionTypes.THIRD_PARTY_LOGIN_REJECTED:
+      return {
+        ...globalState,
+        isLogin: false,
+        error: action.err
       };
     default:
       return globalState;

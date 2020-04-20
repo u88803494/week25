@@ -12,15 +12,16 @@ import { GridPosts } from './grid_posts';
  * ~~4. 由一個 RenderPost 選擇要 render list 或是 blog~~
  * ~~5. 切割檔案出去~~
  */
-const PostsHeader = ({ isList, setIsList, handleShowWindows }) => {
+const PostsHeader = ({ isList, setIsList, handleShowWindows, isLogin }) => {
   return (
     <header className="header">
       <div className="header__title">部落格文章</div>
       <div className="header__body">
         <div className="header__newpost">
-          <Button variant="outline-primary" onClick={handleShowWindows} name="create">
-            新增文章
-          </Button>
+          {isLogin &&
+            <Button variant="outline-primary" onClick={handleShowWindows} name="create">
+              新增文章
+            </Button>}
         </div>
         <ButtonGroup aria-label="Basic example">
           <Button
@@ -41,7 +42,7 @@ const PostsHeader = ({ isList, setIsList, handleShowWindows }) => {
   )
 }
 
-const RenderPosts = ({ data, history, isList, showManagementWindow }) => {
+const RenderPosts = ({ data, history, isList, showManagementWindow, isLogin }) => {
   const handleShow = (e) => {
     const { id, name } = e.target.dataset;
     showManagementWindow({ method: name, postId: parseInt(id, 10) }); // event 接收的是 string
@@ -52,14 +53,14 @@ const RenderPosts = ({ data, history, isList, showManagementWindow }) => {
   return (
     <>
       {isList
-        ? <ListPosts {...{ data, handleShow, historyPush }} />
+        ? <ListPosts {...{ data, handleShow, historyPush, isLogin }} />
         : <GridPosts {...{ data, handleShow, historyPush }} />}
     </>
   )
 }
 
 const Posts = ({
-  history, postsListData, showManagementWindow, getPosts, shouldGetPosts
+  history, postsListData, showManagementWindow, getPosts, shouldGetPosts, isLogin, familyName,
 }) => {
   const [isList, setIsList] = useState(false);
 
@@ -71,11 +72,11 @@ const Posts = ({
 
   return (
     <div className="blog container">
-      <PostsHeader {...{ isList, setIsList, handleShowWindows }} />
+      <PostsHeader {...{ isList, setIsList, handleShowWindows, isLogin }} />
       <main className="blog__posts">
         {/** 判斷是否讀取中 */
           postsListData.length
-            ? <RenderPosts data={postsListData} {...{ history, showManagementWindow, isList }} />
+            ? <RenderPosts data={postsListData} {...{ history, showManagementWindow, isList, isLogin }} />
             : <Spinner animation="border" />
         }
       </main>
