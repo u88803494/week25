@@ -107,7 +107,7 @@ export const hideAdminWindow = () => ({
   type: actionTypes.HIDE_ADMIN_WINDOW,
 });
 
-export const thirdPartyLoginFulfilled = (res) => ({
+export const thirdPartyLoginFulfilled = res => ({
   type: actionTypes.THIRD_PARTY_LOGIN_FULFILLED,
   res,
 });
@@ -121,4 +121,9 @@ export const thirdPartyLogin = (provider) => dispatch => {
   firebase.auth().signInWithPopup(provider)
     .then(res => dispatch(thirdPartyLoginFulfilled(res)))
     .catch(err => dispatch(thirdPartyLoginRejected(err)));
-}
+};
+
+export const getCookiesLoginState = loginState => ({
+  type: actionTypes.GET_COOKIES_LOGIN_STATE,
+  loginState,
+});

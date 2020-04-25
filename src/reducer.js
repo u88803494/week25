@@ -13,7 +13,7 @@ const windowInitState = {
 };
 
 const adminWindowInitState = {
-  show: true, // 測試先直接顯示
+  show: false,
   isLogin: false, // 預計存在 cookie，之後可能還要實作從 cookie 取得值
   token: null,
   userId: null,
@@ -104,6 +104,11 @@ const adminReducer = (globalState = adminWindowInitState, action) => {
         ...globalState,
         isLogin: false,
         error: action.err
+      };
+    case actionTypes.GET_COOKIES_LOGIN_STATE:
+      return {
+        ...globalState,
+        ...action.loginState,
       };
     default:
       return globalState;

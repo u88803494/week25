@@ -68,7 +68,8 @@ class TheNavbar extends React.Component {
   }
 
   render() {
-    const { isLogin, familyName } = this.props;
+    const { isLogin, profileName } = this.props;
+
     return (
       <Navbar
         collapseOnSelect
@@ -87,10 +88,9 @@ class TheNavbar extends React.Component {
             <Item to="/about" text="關於本站" />
           </Nav>
           <Nav >
-            <div className="nav-link admin" onClick={this.props.onShow}>
-              {isLogin ? '你好，' + familyName : '管理員登入'}
+            <div className="nav-link admin active" onClick={this.props.onShow}>
+              {isLogin ? '你好，' + profileName : '管理員登入'}
             </div>
-            {/* 彈出視窗輸入密碼成功開啟，真實密碼利用 hash 隱藏，之後在實作登入功能 */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

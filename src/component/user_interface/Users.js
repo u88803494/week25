@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import './users.css';
 import firebase from 'firebase';
+import Cookies from 'js-cookie';
 
 /* 功能先做出來，之後再優化畫面 */
+/** 可能要切割兩個 component，
+ * 一個是登入的界面，另外一個是登出的界面，登出的界面同時可以用來做管理界面。 */
 
-const Users = ({ show, onHide, thirdPartyLogin }) => {
+const Users = ({ show, adminState, onHide, thirdPartyLogin, getCookiesLoginState }) => {
   const [password, setPassword] = useState('');
 
   const changePassword = e => setPassword(e.target.value);
@@ -14,8 +17,21 @@ const Users = ({ show, onHide, thirdPartyLogin }) => {
   const googleSignin = () => { // 彈出視窗註冊
     const provider = new firebase.auth.GoogleAuthProvider(); // google 註冊初始
     thirdPartyLogin(provider);
-    onHide();
   }
+
+  useEffect(() => { // 載入 cookie
+    const loginState = Cookies.get('loginState');
+    if (loginState) {
+      getCookiesLoginState(JSON.parse(loginState));
+    }
+  }, [getCookiesLoginState]);
+
+  useEffect(() => { // 利用 cookie 儲存登入
+    if (adminState.isLogin === true) {
+      Cookies.set('loginState', { ...adminState }, { expires: 7 })
+      onHide();
+    };
+  }, [adminState.isLogin]); // adminState 可能需要用 useCallback 來實作
 
   return (
     <>

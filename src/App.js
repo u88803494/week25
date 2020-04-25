@@ -16,10 +16,8 @@ const App = () => {
   useEffect(() => { // 初始化 firebase 
     if (!firebase.apps.length) {
       firebase.initializeApp(config);
-      console.log('初始化')
     } else {
       firebase.app();
-      console.log('非初始')
     }
   }, [])
 
