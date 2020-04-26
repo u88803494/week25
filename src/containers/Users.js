@@ -7,17 +7,15 @@ const UsersContainer = props => <Users {...props} />;
 
 const mapStateToProps = state => ({
   show: state.adminState.show,
-  adminState: {
-    isLogin: state.adminState.isLogin,
-    profileName: state.adminState.profileName,
-    token: state.adminState.token,
-    userId: state.adminState.userId,
-  },
+  isLogin: state.adminState.isLogin,
+  profileName: state.adminState.profileName,
+  token: state.adminState.token,
+  userId: state.adminState.userId,
 });
 
 const mapDispatchToProps = dispatch => ({
   onHide: () => dispatch(actions.hideAdminWindow()),
-  thirdPartyLogin: (provider) => dispatch(actions.thirdPartyLogin(provider)),
+  thirdPartyLogin: provider => dispatch(actions.thirdPartyLogin(provider)),
   getCookiesLoginState: loginState => dispatch(actions.getCookiesLoginState(loginState)),
 });
 
