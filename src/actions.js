@@ -123,6 +123,10 @@ export const thirdPartyLogin = (provider) => dispatch => {
     .catch(err => dispatch(thirdPartyLoginRejected(err)));
 };
 
+export const thirdPartySignOut = () =>( {
+  type: actionTypes.THIRD_PARTY_SIGNOUT,
+})
+
 export const getCookiesLoginState = loginState => ({
   type: actionTypes.GET_COOKIES_LOGIN_STATE,
   loginState,

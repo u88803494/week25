@@ -16,6 +16,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   onHide: () => dispatch(actions.hideAdminWindow()),
   thirdPartyLogin: provider => dispatch(actions.thirdPartyLogin(provider)),
+  thirdPartySignOut: () => dispatch(actions.thirdPartySignOut()),
   getCookiesLoginState: loginState => dispatch(actions.getCookiesLoginState(loginState)),
 });
 
