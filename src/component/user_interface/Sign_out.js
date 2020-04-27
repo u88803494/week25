@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Modal, Form } from 'react-bootstrap';
+import React from 'react';
+import { Button, Modal } from 'react-bootstrap';
 import firebase from 'firebase';
 import Cookies from 'js-cookie';
 
@@ -16,7 +16,7 @@ const SignOut = ({ onHide, thirdPartySignOut }) => {
   return (
     <>
       <Modal.Header closeButton>
-        <Modal.Title>管理界面</Modal.Title>
+        <Modal.Title>登出</Modal.Title>
       </Modal.Header>
       <Modal.Footer>
         <Button variant="danger" onClick={googleSignOut}>

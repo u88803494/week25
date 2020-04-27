@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Modal, Form } from 'react-bootstrap';
+import React from 'react';
+import { Button, Modal } from 'react-bootstrap';
 import firebase from 'firebase';
 
 const SignIn = ({ onHide, thirdPartyLogin }) => {

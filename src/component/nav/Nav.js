@@ -89,7 +89,7 @@ class TheNavbar extends React.Component {
           </Nav>
           <Nav >
             <div className="nav-link admin active" onClick={this.props.onShow}>
-              {isLogin ? '你好，' + profileName : '管理員登入'}
+              {isLogin ? '你好，' + profileName : '登入'}
             </div>
           </Nav>
         </Navbar.Collapse>
