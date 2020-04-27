@@ -34,39 +34,43 @@
 - [axios](https://github.com/axios/axios)
 - [react-markdwon](https://github.com/rexxars/react-markdown#readme)
 - [firebase](https://www.npmjs.com/package/firebase)
-- js-cookie
+- [js-cookie](https://github.com/js-cookie/js-cookie)
 
 ## 頁面簡介
-### 電影瀏覽頁面
-![image](https://upload.cc/i1/2019/10/12/AxYjHz.png)
+### 簡易的首頁介紹頁
+![index](https://i.imgur.com/1yO8wtV.png)
 
-### 電影詳細資訊
-#### 電影簡介
-![image](https://upload.cc/i1/2019/10/12/EkQ2b8.png)
+### 文章列表
+#### 網格狀顯示
+![grid](https://i.imgur.com/QrxDrvp.png)
 
-#### 預告片
-![image](https://upload.cc/i1/2019/10/12/Iqfmgs.png)
+#### 條列式顯示
+![list](https://i.imgur.com/MhFygGT.png)
 
-#### 卡司
-![image](https://upload.cc/i1/2019/10/12/mUJwqY.png)
+#### 彈出視窗登入功能
+![sign_in](https://i.imgur.com/0XbOgsX.png)
 
-#### 劇照
-![image](https://upload.cc/i1/2019/10/12/LnlhRo.png)
+#### 登入後即可使用文章功能
+![CRUD](https://i.imgur.com/xhxOROP.png)
 
-#### 推薦清單
-![image](https://upload.cc/i1/2019/10/12/9xjvfK.png)
+#### 顯示單一文章
+包含的 markdown 的顯示
+![markdown](https://i.imgur.com/eohKhtU.png)
 
-#### 搜尋頁面
-![search image](https://upload.cc/i1/2019/10/12/5qGNKI.png)
+### 文章功能
+#### 新增文章
+![createPost](https://i.imgur.com/XIhp8pO.gif)
 
-#### 播放清單
-![watch list](https://upload.cc/i1/2019/10/12/rqCLOz.png)
+#### 編輯文章
+![editing](https://i.imgur.com/tcebwRy.gif)
+
+#### 刪除文章
+![delete](https://i.imgur.com/FLRiUfb.gif)
+
+#### 錯誤示範功能
+![Imgur](https://i.imgur.com/gnCPEjo.gif)
 
 ### 畫面效果
-
 #### 捲動隱藏導覽列
 ![Imgur](https://i.imgur.com/yn3fw2K.gif)
 [Medium:讓 React 根據捲動隱藏導覽列](https://medium.com/@hugh_Program_learning_diary_Js/%E8%AE%93-react-%E6%A0%B9%E6%93%9A%E6%8D%B2%E5%8B%95%E9%9A%B1%E8%97%8F%E5%B0%8E%E8%A6%BD%E5%88%97-9dc59e3a4312)
-
-
-![Imgur](https://i.imgur.com/IKvqiKw.png)
