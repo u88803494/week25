@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 import * as WebAPI from './WebAPI';
+import firebase from 'firebase';
 
 // CREATE
 export const createPostFulfilled = () => ({
@@ -94,6 +95,39 @@ export const showManagementWindow = postState => ({
   postState,
 });
 
-export const hideMangementWindow = () => ({
+export const hideManagementWindow = () => ({
   type: actionTypes.HIDE_ARTICLE_MANAGEMENT_WINDOW,
+});
+
+export const showAdminWindow = () => ({
+  type: actionTypes.SHOW_ADMIN_WINDOW,
+});
+
+export const hideAdminWindow = () => ({
+  type: actionTypes.HIDE_ADMIN_WINDOW,
+});
+
+export const thirdPartyLoginFulfilled = res => ({
+  type: actionTypes.THIRD_PARTY_LOGIN_FULFILLED,
+  res,
+});
+
+export const thirdPartyLoginRejected = err => ({
+  type: actionTypes.THIRD_PARTY_LOGIN_REJECTED,
+  err,
+});
+
+export const thirdPartyLogin = (provider) => dispatch => {
+  firebase.auth().signInWithPopup(provider)
+    .then(res => dispatch(thirdPartyLoginFulfilled(res)))
+    .catch(err => dispatch(thirdPartyLoginRejected(err)));
+};
+
+export const thirdPartySignOut = () =>( {
+  type: actionTypes.THIRD_PARTY_SIGNOUT,
+})
+
+export const getCookiesLoginState = loginState => ({
+  type: actionTypes.GET_COOKIES_LOGIN_STATE,
+  loginState,
 });

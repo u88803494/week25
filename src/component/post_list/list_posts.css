@@ -1,5 +1,6 @@
 .blog__post--list {
   align-items: center;
+  height: 63px;
 }
 
 .blog__title--list {

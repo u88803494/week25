@@ -23,6 +23,13 @@
   margin-right: 50px;
 }
 
+.header__switch--list {
+  width: 20px;
+  height: 20px;
+  fill-rule: #28a745;
+  color: #28a745;
+}
+
 .blog__post {
   display: flex;
   justify-content: space-between;

@@ -21,7 +21,7 @@ const About = () => (
           `}
       </pre>
     </Jumbotron>
-  </div>
+  </div >
 );
 
 

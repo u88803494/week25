@@ -8,6 +8,8 @@ const PostsContainer = props => <Posts {...props} />;
 const mapStateToProps = state => ({
   postsListData: state.posts.postsListData,
   shouldGetPosts: state.posts.shouldGetPosts,
+  isLogin: state.adminState.isLogin,
+  familyName: state.adminState.profileName,
 });
 
 

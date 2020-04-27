@@ -55,7 +55,7 @@
   width: 100%;
 }
 
-@media (min-width: 576px), screen and (max-width: 576px) {
+@media (min-width: 576px), screen and (max-width: 576px) { /* 不同 size 會跑板 */
   .blog__post--grid {
     flex-direction: column-reverse;
   }

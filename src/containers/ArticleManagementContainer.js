@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => ({
   errorUpdatePost: post => dispatch(actions.errorUpdatePost(post)),
   errorDeletePost: id => dispatch(actions.errorDeletePost(id)),
   showManagementWindow: showData => dispatch(actions.showManagementWindow(showData)),
-  onHide: () => dispatch(actions.hideMangementWindow()),
+  onHide: () => dispatch(actions.hideManagementWindow()),
 });
 
 export default connect(
