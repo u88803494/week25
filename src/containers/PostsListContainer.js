@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Posts from '../component/post_list';
-import * as actions from '../actions';
+import * as windowActions from '../store/actions/window';
+import * as postsActions from '../store/actions/posts';
 
 const PostsContainer = props => <Posts {...props} />;
 
@@ -14,8 +15,8 @@ const mapStateToProps = state => ({
 
 
 const mapDispatchToProps = dispatch => ({
-  showManagementWindow: showData => dispatch(actions.showManagementWindow(showData)),
-  getPosts: () => dispatch(actions.getPostsList()),
+  showManagementWindow: showData => dispatch(windowActions.showManagementWindow(showData)),
+  getPosts: () => dispatch(postsActions.getPostsList()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsContainer);
