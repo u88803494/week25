@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Users from '../component/user_interface';
-import * as actions from '../actions';
+import * as windowActions from '../store/actions/window';
+import * as adminActions from '../store/actions/admin';
 
 const UsersContainer = props => <Users {...props} />;
 
@@ -14,10 +15,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onHide: () => dispatch(actions.hideAdminWindow()),
-  thirdPartyLogin: provider => dispatch(actions.thirdPartyLogin(provider)),
-  thirdPartySignOut: () => dispatch(actions.thirdPartySignOut()),
-  getCookiesLoginState: loginState => dispatch(actions.getCookiesLoginState(loginState)),
+  onHide: () => dispatch(windowActions.hideAdminWindow()),
+  thirdPartyLogin: provider => dispatch(adminActions.thirdPartyLogin(provider)),
+  thirdPartySignOut: () => dispatch(adminActions.thirdPartySignOut()),
+  getCookiesLoginState: loginState => dispatch(adminActions.getCookiesLoginState(loginState)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
