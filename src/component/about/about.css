@@ -1,3 +1,11 @@
 .about__content {
   white-space: pre-line;
 }
+
+.carousel {
+}
+
+.carousel__content {
+  border: 1px solid #000;
+  background: #000;
+}
