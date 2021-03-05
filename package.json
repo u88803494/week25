@@ -1,8 +1,13 @@
 {
   "name": "week25",
   "version": "0.1.0",
-  "private": true,
   "homepage": "./",
+  "license": "MIT",
+  "author": {
+    "name": "Hugh Lee",
+    "email": "u88803494@gmail.com",
+    "url": "https://hugh-program-learning-diary-js.medium.com/"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.0.0",
     "@testing-library/react": "^11.0.0",
@@ -37,6 +42,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "private": true,
   "browserslist": {
     "production": [
       ">0.2%",
@@ -50,7 +56,5 @@
     ]
   },
   "main": "index.js",
-  "repository": "https://github.com/u88803494/week25.git",
-  "author": "Hugh <u88803494@gmail.com>",
-  "license": "MIT"
+  "repository": "https://github.com/u88803494/week25.git"
 }
