@@ -1,0 +1,7 @@
+- date: 2021-03-04
+  en:
+    package.json:
+      - Update all package to the lastest version.
+  zh-TW:
+    package.json:
+      - 更新所有的 package 到最新版本。
