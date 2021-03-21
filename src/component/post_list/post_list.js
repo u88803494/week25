@@ -1,9 +1,18 @@
+// region 1. Platform Libraries
 import React, { useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
 import { Button, Spinner, ButtonGroup } from 'react-bootstrap';
-import './post_list.css';
-import { ListPosts } from './list_posts';
+import { withRouter } from 'react-router-dom';
+// end-region
+
+// region 2. Project Libraries
 import { GridPosts } from './grid_posts';
+import { ListPosts } from './list_posts';
+// end-region
+
+// region U. UI Markups
+import './post_list.css';
+// end-region
+
 
 /** 變動部分:
  * ~~1. 文章列表改版，變得更像 blog~~
@@ -59,7 +68,7 @@ const RenderPosts = ({ data, history, isList, showManagementWindow, isLogin }) =
   )
 }
 
-const Posts = ({
+const Posts = ({ /* TODO: To be a file, name is Posts  */
   history, postsListData, showManagementWindow, getPosts, shouldGetPosts, isLogin, familyName,
 }) => {
   const [isList, setIsList] = useState(false);
@@ -68,7 +77,7 @@ const Posts = ({
 
   useEffect(() => {
     if (shouldGetPosts) getPosts();
-  }, [getPosts, shouldGetPosts]); // 一開始 ture 會取得值，然後後續修改成功之後也會取得值
+  }, [getPosts, shouldGetPosts]); // 一開始 true 會取得值，然後後續修改成功之後也會取得值
 
   return (
     <div className="blog container">
