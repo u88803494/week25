@@ -1,8 +1,15 @@
+// region 1. Platform Libraries
 import React from 'react';
-import './list_posts.css';
 import { ListGroup, Button } from 'react-bootstrap';
+// end-region
 
-export const ListPosts = ({ data, handleShow, historyPush, isLogin }) => (
+// region U. UI Markups
+import './list_posts.css';
+// end-region
+
+export const ListPosts = ({
+  data, handleShow, historyPush, isLogin
+}) => (
   <>
     {data.map(post => (
       <ListGroup.Item className="blog__post blog__post--list" key={post.id}>
