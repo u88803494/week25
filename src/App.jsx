@@ -5,7 +5,7 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 // end-region
 
 // region 2. Project Libraries
-import About from './component/about';
+import About from './component/About';
 import Footer from './component/footer';
 import Home from './component/home';
 import Posts from './component/posts';
@@ -21,17 +21,17 @@ import './App.css';
 // end-region
 
 const App = () => {
-  useEffect(() => { // 初始化 firebase 
+  useEffect(() => { // 初始化 firebase
     if (!firebase.apps.length) {
       firebase.initializeApp(config);
     } else {
       firebase.app();
     }
-  }, [])
+  }, []);
 
   return (
     <Router>
-      <div className="App">
+      <div className="app">
         <Nav />
         <Users />
         <ArticleManagement />
@@ -43,6 +43,6 @@ const App = () => {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
