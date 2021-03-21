@@ -31,7 +31,8 @@ export const getPost = () => ({
   payload: webAPIs.getPost(),
 });
 
-export const getPostsFulfilled = data => ({
+// Browse
+export const getPostsFulfilled = (data) => ({
   type: actionTypes.GET_POSTS_FULFILLED,
   data,
 });
