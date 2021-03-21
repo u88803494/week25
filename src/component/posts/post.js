@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { Button, Spinner } from 'react-bootstrap';
-import { getPost } from '../../store/WebAPI';
+import { getPost } from '../../store/webAPIs';
 import './post.css';
 
 const ControllerButton = () => (

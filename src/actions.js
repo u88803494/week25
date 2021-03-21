@@ -1,5 +1,5 @@
 import * as actionTypes from '../actionTypes';
-import * as WebAPI from '../WebAPI';
+import * as webAPIs from '../webAPIs';
 import firebase from 'firebase';
 
 // CREATE
@@ -13,13 +13,13 @@ export const createPostRejected = err => ({
 });
 
 export const createPost = post => (dispatch) => {
-  WebAPI.createPost(post)
+  webAPIs.createPost(post)
     .then(res => res.status <= 300 && dispatch(createPostFulfilled()))
     .catch(err => dispatch(createPostRejected(err)));
 };
 
 export const errorCreatePost = post => (dispatch) => {
-  WebAPI.errorCreatePost(post)
+  webAPIs.errorCreatePost(post)
     .then(res => res.status <= 300 && dispatch(createPostFulfilled()))
     .catch(err => dispatch(createPostRejected(err)));
 };
@@ -27,7 +27,7 @@ export const errorCreatePost = post => (dispatch) => {
 // Read
 export const getPost = () => ({
   type: actionTypes.GET_POST,
-  payload: WebAPI.getPost(),
+  payload: webAPIs.getPost(),
 });
 
 export const getPostsFulfilled = data => ({
@@ -41,7 +41,7 @@ export const getPostsRejected = err => ({
 });
 
 export const getPostsList = () => (dispatch) => {
-  WebAPI.getPosts()
+  webAPIs.getPosts()
     .then(res => dispatch(getPostsFulfilled(res.data)))
     .catch(err => dispatch(getPostsRejected(err)));
 };
@@ -57,13 +57,13 @@ export const updatePostRejected = err => ({
 });
 
 export const updatePost = post => (dispatch) => {
-  WebAPI.updatePost(post)
+  webAPIs.updatePost(post)
     .then(res => res.status <= 300 && dispatch(updatePostFulfilled()))
     .catch(err => dispatch(updatePostRejected(err)));
 };
 
 export const errorUpdatePost = post => (dispatch) => {
-  WebAPI.errorUpdatePost(post)
+  webAPIs.errorUpdatePost(post)
     .then(res => res.status <= 300 && dispatch(updatePostFulfilled()))
     .catch(err => dispatch(updatePostRejected(err)));
 };
@@ -79,13 +79,13 @@ export const deletePostRejected = err => ({
 });
 
 export const deletePost = id => (dispatch) => {
-  WebAPI.deletePost(id)
+  webAPIs.deletePost(id)
     .then(res => res.status <= 300 && dispatch(deletePostFulfilled()))
     .catch(err => dispatch(deletePostRejected(err)));
 };
 
 export const errorDeletePost = id => (dispatch) => {
-  WebAPI.errorDeletePost(id)
+  webAPIs.errorDeletePost(id)
     .then(res => res.status <= 300 && dispatch(deletePostFulfilled()))
     .catch(err => dispatch(deletePostRejected(err)));
 };
