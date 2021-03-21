@@ -1,5 +1,10 @@
+// region 1. Platform Libraries
 import React from 'react';
-import './footer.css';
+// end-region
+
+// region U. UI Markups
+import './Footer.css';
+// end-region
 
 const Footer = () => (
   <footer className="footer">
@@ -13,7 +18,7 @@ const Footer = () => (
           target="_blank"
           rel="noopener noreferrer"
         >
-          {` hugh`}
+          {' hugh'}
         </a>
       </div>
     </div>

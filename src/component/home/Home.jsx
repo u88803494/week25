@@ -1,9 +1,13 @@
+// region 1. Platform Libraries
 import React from 'react';
 import {
   Button, Figure, Card, CardGroup,
 } from 'react-bootstrap';
-import './home.css';
+// end-region
 
+// region U. UI Markups
+import './Home.css';
+// end-region
 
 const SeeMoreButton = ({ className, text, variant }) => (
   <Button variant={variant} href="#/posts" className={className}>
@@ -13,7 +17,7 @@ const SeeMoreButton = ({ className, text, variant }) => (
 
 const Advantages = ({ avaData }) => (
   <CardGroup>
-    {avaData.map(data => (
+    {avaData.map((data) => (
       <Card key={data.url}>
         <Card.Img variant="top" src={data.url} />
         <Card.Body>
@@ -120,6 +124,5 @@ const Home = () => {
     </div>
   );
 };
-
 
 export default Home;
