@@ -9,7 +9,7 @@ import About from './component/About';
 import Footer from './component/footer';
 import Home from './component/home';
 import Posts from './component/posts';
-import ArticleManagement from './containers/ArticleManagementContainer';
+import ArticleManagement from './containers/ArticleManagement';
 import PostsList from './containers/PostsList';
 import Nav from './containers/Nav';
 import Users from './containers/Users';

@@ -1,5 +1,7 @@
+// region 1. Platform Libraries
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
+// end-region
 
 const DeleteWindow = ({
   onHide, show, postId, shouldGetPosts, error, deletePost, defaultState, errorDeletePost,
