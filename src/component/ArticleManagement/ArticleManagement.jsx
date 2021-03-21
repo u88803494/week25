@@ -1,4 +1,7 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* TODO: Solve later */
 // region 1. Platform Libraries
+import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 // end-region
 
@@ -15,8 +18,8 @@ const ArticleManagement = (props) => {
   const {
     method, posts, postId, onHide, shouldGetPosts,
   } = props;
-  const newPost = { title: '', author: '', body: '' }; // 新增文章用的預設值
-  const editingPost = posts.find((post) => post.id === postId); // 取得資料
+  const newPost = { author: '', body: '', title: '' }; // 新增文章用的預設值
+  const editingPost = posts.find((post) => (post.id === postId)); // 取得資料
   const defaultState = { // 寫好的預設值用來傳入編輯視窗
     post: postId ? editingPost : newPost,
     empty: { title: false, author: false, body: false },
@@ -39,8 +42,11 @@ const ArticleManagement = (props) => {
 };
 
 ArticleManagement.propTypes = {
-  closeContactForm: PropTypes.func.isRequired,
-  contactFormRequset: PropTypes.string.isRequired,
+  method: PropTypes.string.isRequired,
+  onHide: PropTypes.bool.isRequired,
+  postId: PropTypes.string.isRequired,
+  posts: PropTypes.arrayOf(PropTypes.object(PropTypes.string)).isRequired,
+  shouldGetPosts: PropTypes.bool.isRequired,
 };
 
 export default ArticleManagement;
