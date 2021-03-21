@@ -13,15 +13,9 @@ import { ListPosts } from './list_posts';
 import './post_list.css';
 // end-region
 
-
-/** 變動部分:
- * ~~1. 文章列表改版，變得更像 blog~~
- * 2. 文章編輯列表改放後台，後台最簡單的就是用密碼確認搭配 hash 確認即可
- * 3. 優化整個畫面
- * ~~4. 由一個 RenderPost 選擇要 render list 或是 blog~~
- * ~~5. 切割檔案出去~~
- */
-const PostsHeader = ({ isList, setIsList, handleShowWindows, isLogin }) => {
+const PostsHeader = ({ /* TODO: To be a new file */
+  isList, setIsList, handleShowWindows, isLogin
+}) => {
   return (
     <header className="header">
       <div className="header__title">部落格文章</div>
@@ -51,7 +45,9 @@ const PostsHeader = ({ isList, setIsList, handleShowWindows, isLogin }) => {
   )
 }
 
-const RenderPosts = ({ data, history, isList, showManagementWindow, isLogin }) => {
+const RenderPosts = ({
+  data, history, isList, showManagementWindow, isLogin
+}) => {
   const handleShow = (e) => {
     const { id, name } = e.target.dataset;
     showManagementWindow({ method: name, postId: parseInt(id, 10) }); // event 接收的是 string
@@ -68,12 +64,12 @@ const RenderPosts = ({ data, history, isList, showManagementWindow, isLogin }) =
   )
 }
 
-const Posts = ({ /* TODO: To be a file, name is Posts  */
+const Posts = ({ /* TODO: To be a new file, name is Posts  */
   history, postsListData, showManagementWindow, getPosts, shouldGetPosts, isLogin, familyName,
 }) => {
   const [isList, setIsList] = useState(false);
 
-  const handleShowWindows = e => showManagementWindow({ method: e.target.name });
+  const handleShowWindows = (e) => showManagementWindow({ method: e.target.name });
 
   useEffect(() => {
     if (shouldGetPosts) getPosts();
@@ -81,12 +77,11 @@ const Posts = ({ /* TODO: To be a file, name is Posts  */
 
   return (
     <div className="blog container">
-      <PostsHeader {...{ isList, setIsList, handleShowWindows, isLogin }} />
+      <PostsHeader {...{ handleShowWindows, isList, isLogin, setIsList }} />
       <main className="blog__posts">
-        {/** 判斷是否讀取中 */
-          postsListData.length
-            ? <RenderPosts data={postsListData} {...{ history, showManagementWindow, isList, isLogin }} />
-            : <Spinner animation="border" />
+        {postsListData.length
+          ? <RenderPosts data={postsListData} {...{ history, isList, isLogin, showManagementWindow }} />
+          : <Spinner animation="border" />
         }
       </main>
     </div>
