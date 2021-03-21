@@ -30,11 +30,11 @@ export const GridPosts = ({ data, historyPush, }) => (
           </p>
           <div className="blog__author">
             <img
-              width={32}
-              height={32}
-              className="mr-3 blog__avatar"
-              src={avatar}
               alt="Generic placeholder"
+              className="mr-3 blog__avatar"
+              height={32}
+              src={avatar}
+              width={32}
             />
             <div className="blog__author--info">
               <div className="blog__author--ellipsis">
