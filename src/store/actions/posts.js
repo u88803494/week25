@@ -47,7 +47,7 @@ export const getPostsList = () => (dispatch) => {
     .catch(err => dispatch(getPostsRejected(err)));
 };
 
-// UPDATA
+// UPDATE
 export const updatePostFulfilled = () => ({
   type: actionTypes.UPDATE_POST_FULFILLED,
 });
