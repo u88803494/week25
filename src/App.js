@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom';
-import PostList from './containers/PostsListContainer';
+import PostsList from './containers/PostsList';
 import ArticleManagement from './containers/ArticleManagementContainer';
 import Nav from './containers/Nav';
 import Users from './containers/Users';
@@ -28,7 +28,7 @@ const App = () => {
         <Users />
         <ArticleManagement />
         <Route exact path="/" component={Home} />
-        <Route exact path="/posts" component={PostList} />
+        <Route exact path="/posts" component={PostsList} />
         <Route path="/about" component={About} />
         <Route path="/posts/:postId" component={Posts} />
         <Footer />
