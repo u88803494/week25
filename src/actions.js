@@ -1,6 +1,11 @@
+// region 1. Platform Libraries
+import firebase from 'firebase';
+// end-region
+
+// region 2. Project Libraries
 import * as actionTypes from '../actionTypes';
 import * as webAPIs from '../webAPIs';
-import firebase from 'firebase';
+// end-region
 
 // CREATE
 export const createPostFulfilled = () => ({
@@ -46,7 +51,7 @@ export const getPostsList = () => (dispatch) => {
     .catch(err => dispatch(getPostsRejected(err)));
 };
 
-// UPDATA
+// UPDATE
 export const updatePostFulfilled = () => ({
   type: actionTypes.UPDATE_POST_FULFILLED,
 });
