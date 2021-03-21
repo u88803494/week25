@@ -1,8 +1,13 @@
+// region 1. Platform Libraries
 import React from 'react';
-import './grid_posts.css';
 import { Media, Col, Image } from 'react-bootstrap';
-import { imageData } from './image_data'
-import avatar from '../../images/avatar.png'
+// end-region
+
+// region U. UI Markups
+import avatar from '../../images/avatar.png';
+import { imageData } from './image_data';
+import './grid_posts.css';
+// end-region
 
 export const GridPosts = ({ data, historyPush, }) => (
   <>
