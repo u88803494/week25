@@ -2,7 +2,6 @@
 import axios from 'axios';
 // end-region
 
-// TODO: Mock data here
 export const createPost = (post) => (axios.post('https://qootest.com/posts/', post));
 
 export const getPosts = () => (axios.get('https://qootest.com/posts?_sort=id&_order=desc')); // 逆排序改用伺服的
