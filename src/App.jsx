@@ -6,8 +6,8 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 
 // region 2. Project Libraries
 import About from './component/About';
-import Footer from './component/footer';
-import Home from './component/home';
+import Footer from './component/Footer';
+import Home from './component/Home';
 import Posts from './component/posts';
 import ArticleManagement from './containers/ArticleManagement';
 import PostsList from './containers/PostsList';
