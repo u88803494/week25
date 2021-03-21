@@ -26,9 +26,9 @@ export const errorCreatePost = post => (dispatch) => {
 };
 
 // Read
-export const getPost = (postId) => ({ /* TODO: Need to check */
+export const getPost = () => ({ /* FIXME: Check if it needs post id */
   type: actionTypes.GET_POST,
-  payload: webAPIs.getPost(postId),
+  payload: webAPIs.getPost(),
 });
 
 // Browse
@@ -41,6 +41,12 @@ export const getPostsRejected = (err) => ({
   type: actionTypes.GET_POSTS_REJECTED,
   err,
 });
+
+export const getPostsList = () => (dispatch) => {
+  webAPIs.getPosts()
+    .then((res) => dispatch(getPostsFulfilled(res.data)))
+    .catch((err) => dispatch(getPostsRejected(err)));
+};
 
 // UPDATE
 export const updatePostFulfilled = () => ({
