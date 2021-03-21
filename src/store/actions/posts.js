@@ -1,5 +1,7 @@
+// region 2. Project Libraries
 import * as actionTypes from '../actionTypes';
 import * as webAPIs from '../webAPIs';
+// end-region
 
 // CREATE
 export const createPostFulfilled = () => ({
