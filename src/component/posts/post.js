@@ -7,7 +7,7 @@ import './post.css';
 
 const ControllerButton = () => (
   <div className="article__controller">
-    <Link to="/posts" className="blog__contorller--back">
+    <Link to="/posts" className="blog__controller--back">
       <Button variant="outline-dark"> back </Button>
     </Link>
   </div>
