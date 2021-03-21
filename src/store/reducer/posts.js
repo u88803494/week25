@@ -1,4 +1,6 @@
+// region 2. Project Libraries
 import * as actionTypes from '../actionTypes';
+// end-region
 
 const postsInitState = {
   postsListData: [],
@@ -26,13 +28,9 @@ const postsReducer = (globalState = postsInitState, action) => {
     case actionTypes.GET_POSTS_FULFILLED:
       return {
         ...globalState,
-        postsListData: action.data // 篩選資料
-          .filter(({ title, author, body }) => title && author && body)
-          .map(post => ({ // 轉化時間，去掉多餘內容
+        postsListData: action.data.map(post => ({ // 轉化時間，去掉多餘內容
             ...post,
-            createdAt: new Date(post.createdAt)
-              .toString()
-              .replace(" GMT+0800 (台北標準時間)", ""),
+            createdAt: new Date(post.createdAt).toString().replace(" GMT+0800 (台北標準時間)", ""),
           })),
         shouldGetPosts: false,
         error: '',

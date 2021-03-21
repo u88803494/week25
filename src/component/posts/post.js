@@ -1,13 +1,21 @@
+// region 1. Platform Libraries
 import React, { Component } from 'react';
+import { Button, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
-import { Button, Spinner } from 'react-bootstrap';
-import { getPost } from '../../store/WebAPI';
+// end-region
+
+// region 2. Project Libraries
+import { getPost } from '../../store/webAPIs';
+// end-region
+
+// region U. UI Markups
 import './post.css';
+// end-region
 
 const ControllerButton = () => (
   <div className="article__controller">
-    <Link to="/posts" className="blog__contorller--back">
+    <Link to="/posts" className="blog__controller--back">
       <Button variant="outline-dark"> back </Button>
     </Link>
   </div>

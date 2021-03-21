@@ -1,13 +1,20 @@
+// region 1. Platform Libraries
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import ReduxThunk from 'redux-thunk';
 import logger from 'redux-logger';
+import ReduxThunk from 'redux-thunk';
+// end-region
+
+// region 2. Project Libraries
 import App from './App';
 import reducers from './store/reducer'
-import * as serviceWorker from './serviceWorker';
+// end-region
+
+// region U. UI Markups
+import './index.css';
+// end-region
 
 const store = createStore(reducers, applyMiddleware(ReduxThunk, logger));
 
@@ -17,8 +24,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
