@@ -2,7 +2,7 @@ import React from 'react';
 import './grid_posts.css';
 import { Media, Col, Image } from 'react-bootstrap';
 import { imageData } from './image_data'
-import avator from '../../images/avator.png'
+import avatar from '../../images/avatar.png'
 
 export const GridPosts = ({ data, historyPush, }) => (
   <>
@@ -17,8 +17,8 @@ export const GridPosts = ({ data, historyPush, }) => (
             <img
               width={32}
               height={32}
-              className="mr-3 blog__avator"
-              src={avator}
+              className="mr-3 blog__avatar"
+              src={avatar}
               alt="Generic placeholder"
             />
             <div className="blog__author--info">
