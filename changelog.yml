@@ -1,0 +1,15 @@
+- date: 2021-03-21
+  en:
+    Posts:
+      - Restore the feature of browsing posts.
+  zh-TW:
+    Posts:
+      - 還原瀏覽文章功能。
+
+- date: 2021-03-04
+  en:
+    package.json:
+      - Update all package to the latest version.
+  zh-TW:
+    package.json:
+      - 更新所有的 package 到最新版本。
