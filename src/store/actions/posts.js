@@ -59,8 +59,12 @@ export const updatePostRejected = (err) => ({
 });
 
 export const updatePost = post => (dispatch) => {
+console.log('🚀 > file: posts.js > line 62 > post', post);
   webAPIs.updatePost(post)
-    .then((res) => res.status <= 300 && dispatch(updatePostFulfilled()))
+    .then((res) => {
+      console.log('🚀 > file: posts.js > line 64 > .then > res', res);
+      return (res.status <= 300 && dispatch(updatePostFulfilled()))
+    })
     .catch((err) => dispatch(updatePostRejected(err)));
 };
 

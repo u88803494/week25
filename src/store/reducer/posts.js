@@ -9,6 +9,7 @@ const postsInitState = {
 };
 
 const postsReducer = (globalState = postsInitState, action) => {
+  console.log('🚀 > file: posts.js > line 12 > postsReducer > action', action);
   switch (action.type) {
     case actionTypes.CREATE_POST_FULFILLED:
     case actionTypes.UPDATE_POST_FULFILLED:
@@ -29,9 +30,9 @@ const postsReducer = (globalState = postsInitState, action) => {
       return {
         ...globalState,
         postsListData: action.data.map(post => ({ // 轉化時間，去掉多餘內容
-            ...post,
-            createdAt: new Date(post.createdAt).toString().replace(" GMT+0800 (台北標準時間)", ""),
-          })),
+          ...post,
+          createdAt: new Date(post.createdAt).toString().replace(" GMT+0800 (台北標準時間)", ""),
+        })),
         shouldGetPosts: false,
         error: '',
       };
